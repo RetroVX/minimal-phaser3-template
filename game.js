@@ -1,21 +1,22 @@
+import preloadScene from "./scenes/preloadScene.js";
 import levelScene from "./scenes/levelScene.js";
 
-const config = {
-  type: Phaser.AUTO,
-  width: 640,
-  height: 480,
-  //backgroundColor: "#192a44",
-  parent: "gameCanvas",
-  //pixelArt: true,
-  resolution: 1.2,
-  scene: levelScene,
-  physics: {
-    default: "arcade",
-    arcade: {
-      //debug: true,
-      gravity: { y: 1000 }
+var config = {
+    type: Phaser.AUTO,
+    scale: {
+        mode: Phaser.Scale.FIT,
+        parent: 'gameCanvas',
+        width: 800,
+        height: 600
+    },
+    backgroundColor: '#2d2d2d',
+    scene: [preloadScene, levelScene],
+    physics: {
+        default: 'arcade',
+        arcade: {
+            //debug: true
+        }
     }
-  }
 };
 
-const game = new Phaser.Game(config);
+var game = new Phaser.Game(config);
